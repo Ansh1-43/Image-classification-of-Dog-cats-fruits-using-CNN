@@ -1,12 +1,2 @@
-Make sure you have the following libraries installed:
-
-bash
-Copy
-Edit
 pip install numpy pandas matplotlib tensorflow keras
-You can install all dependencies using:
-
-bash
-Copy
-Edit
 pip install -r requirements.txt
