@@ -1,6 +1,4 @@
 streamlit
-tensorflow==2.14.0
-numpy<2.0
+tensorflow
 pillow
-scikit-learn
-matplotlib
+numpy
