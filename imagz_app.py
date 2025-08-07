@@ -1,40 +1,33 @@
 import streamlit as st
-import numpy as np
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+import numpy as np
 from PIL import Image
 
-# Load your trained CNN model
-model = load_model('model/cnn_model.h5')  # Update path as needed
+# Load the trained model
+model = load_model("model.h5")
 
-# Define class names (change based on your dataset)
-class_names = ['Cat', 'Dog']  # Replace with your actual class labels
+# Define class names (edit this based on your dataset)
+class_names = ['Class A', 'Class B', 'Class C']
 
-# Set page config
-st.set_page_config(page_title="Image Classification CNN", layout="centered")
-
-# Title
-st.title("🧠 Image Classification using CNN")
-st.markdown("Upload an image and the model will predict its class.")
+st.title("🧠 Image Classification with CNN")
+st.write("Upload an image to classify using a Convolutional Neural Network.")
 
 # Upload image
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    # Display uploaded image
-    img = Image.open(uploaded_file)
+    img = Image.open(uploaded_file).convert("RGB")
     st.image(img, caption='Uploaded Image', use_column_width=True)
 
-    # Preprocess image
-    st.write("Classifying...")
-    img = img.resize((64, 64))  # Ensure this matches model input size
-    img_array = image.img_to_array(img)
+    # Preprocess the image
+    img = img.resize((64, 64))  # Match input size of your model
+    img_array = image.img_to_array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
-    img_array = img_array / 255.0  # Normalize if model was trained on normalized data
 
     # Predict
-    prediction = model.predict(img_array)
-    predicted_class = class_names[np.argmax(prediction)]
+    predictions = model.predict(img_array)
+    predicted_class = class_names[np.argmax(predictions)]
 
-    # Output
-    st.success(f"Prediction: **{predicted_class}**")
+    st.write(f"### ✅ Prediction: `{predicted_class}`")
