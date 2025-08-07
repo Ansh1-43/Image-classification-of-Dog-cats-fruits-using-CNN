@@ -1,16 +1,6 @@
-# Core libraries
-numpy>=1.18.5
-matplotlib>=3.2.2
-pandas>=1.0.5
-
-# Machine learning and deep learning
-tensorflow>=2.8.0
-keras>=2.8.0
-scikit-learn>=0.24.2
-
-# Jupyter Notebook
-notebook>=6.4.0
-ipython>=7.16.0
-
-# Image processing (if needed)
-Pillow>=8.0.0
+streamlit
+tensorflow==2.14.0
+numpy<2.0
+pillow
+scikit-learn
+matplotlib
