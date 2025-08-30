@@ -8,8 +8,9 @@ This project is a beginner-friendly image classifier built using a Convolutional
   `airplane`, `automobile`, `bird`, `cat`, `deer`, `dog`, `frog`, `horse`, `ship`, `truck`
 - Live prediction with confidence score
 
-## 🚀 Live App
-👉 [Click here to try the app](https://image-cnn-demo.streamlit.app)
+## 🚀 Live Demo
+[Click here to open the app](https://1234-ansh1-43-8501.app.github.dev)
+
 
 ## 🛠 Tech Stack
 - Python 3.x
